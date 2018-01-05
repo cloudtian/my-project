@@ -2,6 +2,7 @@
 
 module.exports = {
   root: true,
+  'extends': 'eslint:recommended',
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module'
@@ -20,6 +21,11 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    // custom rules add by cloudtian
+    'semi': ['error', 'always'],
+    'indent': 'off',
+    'no-trailing-spaces': 'off'
   }
 }
