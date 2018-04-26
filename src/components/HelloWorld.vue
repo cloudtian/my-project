@@ -17,16 +17,6 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
-
-    <row :gutter="20">
-      <col :span="12">第一列</col>  
-      <col :span="12">第二列</col>  
-    </row>
-
-    <el-row :gutter="20">
-      <el-col :span="12">第一列</el-col>  
-      <el-col :span="12">第二列</el-col>  
-    </el-row>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
-import Row from './row';
+import ElRow from './row';
 
-Row.install = function (Vue) {
-    Vue.component(Row.name, Row);
+ElRow.install = function (Vue) {
+    Vue.component(ElRow.name, ElRow);
 };
 
-export default Row;
+export default ElRow;

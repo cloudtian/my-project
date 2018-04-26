@@ -2,18 +2,21 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
 
-import Row from '@/components/common/layout/row/index';
+import ElRow from '@/components/common/layout/row/index';
+import ElCol from '@/components/common/layout/col/index';
+
+import '@/components/common/theme-default/row.css';
+import '@/components/common/theme-default/col.css';
 
 Vue.config.productionTip = false;
 
-Vue.use(ElementUI);
-
 // 注册组件
 let componets = [
-  Row
+  ElRow,
+  ElCol
 ];
 
 componets.forEach(component => {

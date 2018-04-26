@@ -1,5 +1,5 @@
 export default {
-   name: 'row',
+   name: 'ElCol',
 
    props: {
 
@@ -44,7 +44,7 @@ export default {
        gutter () {
            let parent = this.$parent;
 
-           while (parent && parent.$options.componetName !== 'Row') {
+           while (parent && parent.$options._componentTag !== 'el-row') {
                parent = parent.$parent;
            }
 
@@ -57,16 +57,16 @@ export default {
        let style = {};
 
        if (this.gutter) {
-           style.paddingLeft =  `${this.gutter / 2}px`;
+           style.paddingLeft = this.gutter / 2 + 'px';
            style.paddingRight = style.paddingLeft;
        }
 
        ['span', 'offset', 'pull', 'push'].forEach(prop => {
            if (this[prop] || this[prop] === 0) {
                classList.push(
-                   prop !== 'span' ?
-                   `el-col-${prop}-${this[prop]}` :
-                   `col-${this[prop]}`
+                   prop !== 'span' 
+                   ? `el-col-${prop}-${this[prop]}` 
+                   : `el-col-${this[prop]}`
                );
            }
        });
@@ -74,25 +74,21 @@ export default {
        ['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
             if (typeof this[size] === 'number') {
                 classList.push(`el-col-${size}-${this[size]}`);
-            } else if (typeof this[size] === object) {
+            } else if (typeof this[size] === 'object') {
                 let props = this[size];
                 Object.keys(props).forEach(prop => {
                     classList.push(
-                    prop !== 'span' ?
-                    `col-${size}-${prop}-${props[prop]}` :
-                    `col-${size}-${props[prop]}`
+                    prop !== 'span' 
+                    ? `el-col-${size}-${prop}-${props[prop]}` 
+                    : `el-col-${size}-${props[prop]}`
                     );
                 });
             }
         });
 
         return h(this.tag, {
-            class: [
-                'col',
-                classList
-            ],
+            class: ['el-col', classList],
             style
-        }, this.$slots.default)
-
+        }, this.$slots.default);
    }
 };
